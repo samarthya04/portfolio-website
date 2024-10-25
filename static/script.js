@@ -67,9 +67,6 @@ function resetForm() {
     clearInterval(interval);
 }
 
-function scrollToTop() {
-    window.scrollTo({top: 0, behavior: 'smooth'});
-}
 
 document.querySelectorAll('.taskbar a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -90,9 +87,11 @@ document.getElementById('darkModeToggle').addEventListener('click', function () 
     document.body.classList.toggle('dark-mode');
     
     if (document.body.classList.contains('dark-mode')) {
-        this.textContent = 'Light Mode';
+        themeIcon.src = 'static/sun (1).png'; 
+        themeIcon.alt = 'Light Mode';
     } else {
-        this.textContent = 'Dark Mode';
+        themeIcon.src = 'static/moon (1).png'; 
+        themeIcon.alt = 'Dark Mode';
     }
 });
 
@@ -118,3 +117,23 @@ document.querySelectorAll('.toggle-content').forEach(button => {
         content.style.display = isExpanded ? 'none' : 'block'; 
     });
 });
+
+const scrollUpButton = document.querySelector('.scrollUpButton');
+
+window.addEventListener('scroll', () => {
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    scrollUpButton.classList.add('show');
+  } else {
+    scrollUpButton.classList.remove('show');
+  }
+});
+
+scrollUpButton.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
+
+
