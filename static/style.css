@@ -39,6 +39,16 @@
   font-display: swap;
 }
 
+header {
+  background-color: #f0f0f0; /* Light header background */
+  padding: 10px;
+}
+
+header.dark-mode {
+  background-color: #1f1f1f; /* Dark header background */
+}
+
+
 body {
   font-family: "Courier New", Courier, monospace;
   background-image: var(--gradient-overlay),
@@ -188,10 +198,12 @@ h1 {
 
 .portfolio-section:hover,
 .portfolio-section:focus-within {
-  transform: translateY(-5px);
+  transform: scale(1.02);
   background-color: #f0f8ff;
   border-color: var(--primary-dark);
   box-shadow: 0 8px 16px rgba(0, 123, 255, 0.4);
+  transition: transform 0.2s, background-color 0.2s;
+
 }
 
 .portfolio-section h2 {
@@ -224,6 +236,8 @@ h1 {
   transform: scale(1.05);
   background-color: var(--primary-dark);
   outline: none;
+  transition: transform 0.2s, background-color 0.2s;
+
 }
 
 body.dark-mode {
@@ -292,7 +306,7 @@ body.dark-mode {
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  animation: spin 1s linear infinite, bounce 2s infinite;
+  animation: spin 1s linear infinite, pulse 1s infinite;
   margin: var(--spacing-md) auto;
 }
 
@@ -338,6 +352,18 @@ body.dark-mode {
   }
 }
 
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.1);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -367,3 +393,86 @@ body.dark-mode {
   background-repeat: no-repeat;
   background-size: contain;
 }
+
+.scrollUpButton {
+  align-items: center;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 50%;
+  bottom: -80px;
+  display: flex;
+  height: 50px; 
+  justify-content: center;
+  position: fixed; 
+  right: 20px; 
+  transition: all 0.3s ease-in-out; 
+  width: 50px; 
+  z-index: 1000; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+  opacity: 0.8; 
+}
+
+.scrollUpButton.show {
+  bottom: 20px;
+  transition: bottom 0.3s ease-in-out; 
+}
+
+.scrollUpButton:hover,
+.scrollUpButton:focus {
+  background-color: var(--primary-dark);
+  transform: scale(1.05);
+  outline: none; 
+  border-color: var(--primary-dark);
+  box-shadow: 0 8px 16px rgba(0, 123, 255, 0.4);
+}
+
+@media screen and (max-width: 800px) {
+  .scrollUpButton.showMobile {
+    bottom: 80px;
+  }
+}
+
+.dark-mode-btn {
+  align-items: center;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 50%;
+  bottom: -80px;
+  display: flex;
+  height: 50px; 
+  justify-content: center;
+  position: fixed; 
+  right: 20px; 
+  transition: all 0.3s ease-in-out; 
+  width: 50px; 
+  z-index: 1000; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+  opacity: 0.8; 
+}
+
+.dark-mode-btn.show {
+  bottom: 20px;
+  transition: bottom 0.3s ease-in-out; 
+}
+
+.dark-mode-btn:hover,
+.dark-mode-btn:focus {
+  background-color: var(--primary-dark);
+  transform: scale(1.05);
+  outline: none; 
+  border-color: var(--primary-dark);
+  box-shadow: 0 8px 16px rgba(0, 123, 255, 0.4);
+}
+
+@media screen and (max-width: 800px) {
+  .dark-mode-btn.showMobile {
+    bottom: 80px;
+  }
+}
+
+
+
+
+
+
+
