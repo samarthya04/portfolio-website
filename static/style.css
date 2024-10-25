@@ -268,7 +268,6 @@ body.dark-mode {
 }
 
 .dark-mode-btn {
-  position: fixed;
   top: var(--spacing-md);
   right: var(--spacing-md);
   background-color: var(--primary-color);
